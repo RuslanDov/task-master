@@ -1,16 +1,14 @@
 import { useTasks } from './features/tasks/hooks/useTasks';
+import { TaskList } from './features/tasks/components/taskList'
 
 function App() {
   const { tasks, loading } = useTasks();
 
-  if (loading) return <div>Завантаження...</div>;
 
   return (
-    <ul>
-      {tasks.map(task => (
-        <li key={task.id}>{task.title}</li>
-      ))}
-    </ul>
+    <>
+    <TaskList tasks={tasks} loading={loading}/>
+    </>
   );
 }
 

@@ -9,10 +9,10 @@ export const useTasks = () => {
 
     useEffect(() => {
         const loadTasks = async () => {
-        setLoading(true);
-        const data = await fetchTasks();
-        setTasks(data);
-        setLoading(false);
+            setLoading(true);
+            const data = await fetchTasks();
+            setTasks(data);
+            setLoading(false);
         };
 
         loadTasks();
