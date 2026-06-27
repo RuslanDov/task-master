@@ -1,4 +1,4 @@
-import type { Task } from '../../../types/task';
+import type { Task } from '../types/task';
 
 export const fetchTasks = async (): Promise<Task[]> => {
     await new Promise((resolve) => setTimeout(resolve, 1000));

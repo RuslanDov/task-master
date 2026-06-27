@@ -1,19 +1,22 @@
-import { useTasks  } from '../hooks/useTasks';
-import TaskForm from './TaskForm';
+import type { Task } from "../types/task"
+
+interface PropsTasksType {
+    tasks: Task[]
+    loading: boolean
+}
 
 
-export const TaskList = () => {
-  const { tasks, loading, addTask } = useTasks();
-  if (loading) return <div>Завантаження завдань...</div>;
-
-  return (
+function TaskList({tasks, loading}: PropsTasksType) {
+if (loading) return <div>Завантаження завдань...</div>;
+return (
     <>
-      <TaskForm onAdd={addTask}/>
-      <ul>
-        {tasks.map((task) => (
-          <li key={task.id}>{task.title}</li>
-        ))}
-      </ul>
+        <ul>
+            {tasks.map((task) => (
+                <li key={task.id}>{task.title}</li>
+            ))}
+        </ul>
     </>
-  );
-};
+)
+}
+
+export default TaskList

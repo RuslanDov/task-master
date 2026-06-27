@@ -1,5 +1,5 @@
 import { useState, useEffect } from 'react';
-import type { Task } from '../../../types/task';
+import type { Task } from '../types/task';
 import { fetchTasks } from '../services/taskService';
 
 

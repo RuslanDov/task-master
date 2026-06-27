@@ -1,12 +1,16 @@
-import { useState } from "react";
+interface PropsTaskForm {
+    onAddTask: (title: string) => void;
+    inputText: string
+    setInputText: (value: string) => void
+}
 
-function TaskForm({onAdd}: {onAdd: (title: string) => void}) {
-    const [inputText, setInputText] = useState('')
+function TaskForm({onAddTask, inputText, setInputText}: PropsTaskForm) {
+
     
     return (
         <>        
             <input type="text" value={inputText} onChange={(e) => {setInputText(e.target.value)}}/>
-            <button onClick={() => {onAdd(inputText); setInputText('')}}>Додати</button>
+            <button onClick={() => {onAddTask(inputText); setInputText('')}}>Додати</button>
         </>
 
     )

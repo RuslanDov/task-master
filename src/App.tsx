@@ -1,11 +1,11 @@
-import { TaskList } from './features/tasks/components/taskList'
+import { TaskContainer } from './features/tasks/components/TaskContainer'
 
 function App() {
 
 
   return (
     <>
-      <TaskList />
+      <TaskContainer />
     </>
   );
 }
