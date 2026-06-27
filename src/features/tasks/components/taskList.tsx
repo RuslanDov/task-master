@@ -1,21 +1,19 @@
-import type { Task } from '../../../types/task'
 import { useTasks  } from '../hooks/useTasks';
-
-interface TaskList {
-  tasks: Task[];
-  loading: boolean;
-}
+import TaskForm from './TaskForm';
 
 
 export const TaskList = () => {
-    const { tasks, loading } = useTasks();
-    if (loading) return <div>Завантаження завдань...</div>;
+  const { tasks, loading, addTask } = useTasks();
+  if (loading) return <div>Завантаження завдань...</div>;
 
   return (
-    <ul>
-      {tasks.map((task) => (
-        <li key={task.id}>{task.title}</li>
-      ))}
-    </ul>
+    <>
+      <TaskForm onAdd={addTask}/>
+      <ul>
+        {tasks.map((task) => (
+          <li key={task.id}>{task.title}</li>
+        ))}
+      </ul>
+    </>
   );
 };

@@ -3,3 +3,5 @@ export interface Task {
     title: string;
     isCompleted: boolean;
 }
+
+export type CreateTaskDTO = Omit<Task, 'id' | 'isCompleted'>;

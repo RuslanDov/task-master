@@ -18,5 +18,14 @@ export const useTasks = () => {
         loadTasks();
     }, []);
 
-    return { tasks, loading };
+    function addTask(title: string) {
+        const newTask: Task = {
+        id: Date.now().toString(),
+        title: title,
+        isCompleted: false
+    };
+    setTasks((prevTasks) => [...prevTasks, newTask]);
+    }
+
+    return { tasks, loading, addTask };
 };
