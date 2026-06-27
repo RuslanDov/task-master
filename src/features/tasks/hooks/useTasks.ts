@@ -7,6 +7,7 @@ export const useTasks = () => {
     const [tasks, setTasks] = useState<Task[]>([]);
     const [loading, setLoading] = useState<boolean>(true);
 
+
     useEffect(() => {
         const loadTasks = async () => {
             setLoading(true);
@@ -27,5 +28,9 @@ export const useTasks = () => {
     setTasks((prevTasks) => [...prevTasks, newTask]);
     }
 
-    return { tasks, loading, addTask };
+    function deleteTask(id: string) {
+        setTasks((prevTask) => prevTask.filter((task) => task.id !== id))
+    }
+
+    return { tasks, loading, addTask, deleteTask };
 };
